@@ -1,0 +1,17 @@
+using Gtk 4.0;
+
+FileFilter filter_desktop {
+  mime-types [ "text/plain", "application/x-desktop" ]
+  suffixes [ "desktop" ]
+  name: "Desktop File";
+}
+
+FileFilter filter_image {
+  mime-types [ "image/*" ]
+  name: "Image File";
+}
+
+FileFilter filter_any {
+  patterns [ "*" ]
+  name: "Any File";
+}

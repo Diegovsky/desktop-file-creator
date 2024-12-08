@@ -1,0 +1,51 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $DFCWindow: Adw.ApplicationWindow {
+  Box body {
+    orientation: vertical;
+    HeaderBar {
+      title-widget: Label {
+        label: "Desktop File Creator";
+      };
+      [start]
+      Button open_button {
+        styles ["flat"]
+        label: "Open";
+      }
+      [start]
+      Button save_button {
+        styles ["flat"]
+        label: "Save";
+      }
+    }
+    Adw.ToastOverlay toast_overlay {
+      child: Adw.Bin bin {
+          margin-start:  40;
+          margin-end:    bind-property bin.margin-start;
+          margin-top:    bind-property bin.margin-start;
+          margin-bottom: bind-property bin.margin-start;
+        ListBox {
+          styles ["boxed-list"]
+          Adw.EntryRow name {
+            title: _("Name");
+          }
+          Adw.EntryRow exec {
+            title: _("Program");
+          }
+          Adw.EntryRow categories {
+            title: _("Categories");
+          }
+          Adw.EntryRow icon {
+            title: _("Icon");
+            [suffix]
+            Button open_icon_button {
+              label: "Browse";
+            }
+          }
+        }
+      };
+    }
+  }
+}
+
